@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="theme-color" content="#0a0a0f">
+  <meta name="color-scheme" content="dark">
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ site.name }}">
+  <meta property="og:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}">
+  <meta property="og:image" content="{{ site.url }}/images/og-image.png">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% if title %}{{ title }} | {% endif %}{{ site.name }}">
+  <meta name="twitter:description" content="{% if description %}{{ description }}{% else %}{{ site.description }}{% endif %}">
+  
+  <title>{% if title %}{{ title }} | {% endif %}{{ site.name }} - AI Photo Restoration</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+  
+  <style>
+    /* Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+  
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo" aria-label="{{ site.name }} - Home">
+          <span class="logo-icon" aria-hidden="true">✨</span>
+          <span class="logo-text">Snap<span class="logo-accent">Mender</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#how-it-works" class="nav-link">
+            <span>How It Works</span>
+          </a>
+          <a href="#examples" class="nav-link">
+            <span>Examples</span>
+          </a>
+          <a href="#pricing" class="nav-link">
+            <span>Pricing</span>
+          </a>
+          <a href="#waitlist" class="nav-link nav-link-cta">
+            <span>Join Waitlist</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="main-content">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">
+            <span class="logo-icon" aria-hidden="true">✨</span>
+            <span class="logo-text">Snap<span class="logo-accent">Mender</span></span>
+          </a>
+          <p class="footer-tagline">{{ site.tagline }}</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#how-it-works">How It Works</a></li>
+              <li><a href="#examples">Examples</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="mailto:hello@snapmender.com">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-text">
+            © {{ year }} {{ site.name }} — {{ site.tagline }}
+          </p>
+          <p class="footer-legal">
+            <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms of Service</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Waitlist Modal -->
+  <div id="waitlist-modal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <h3>Join the Waitlist</h3>
+      <p>Be the first to know when SnapMender launches. Early subscribers get 50% off their first restoration.</p>
+      <form class="waitlist-form modal-form" action="https://formspree.io/f/placeholder" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary btn-large">Join Waitlist</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
