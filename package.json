@@ -1,0 +1,7 @@
+{
+  "name": "snapmender",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd site && npm install && npm run build"
+  }
+}
